@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security and data handling | MVP for Jira</title>
+<meta name="description" content="What MVP for Jira stores, where it lives, who can see it, and how to report a security issue.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon.png" alt="" width="36" height="36">MVP for Jira</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="docs.html">Docs</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="security.html" aria-current="page">Security</a>
+      <a href="support.html">Support</a>
+      <!-- MARKETPLACE_URL: replace with the listing URL once it exists -->
+      <a class="btn btn-blue" href="https://marketplace.atlassian.com/search?query=MVP%20for%20Jira">Get it on the Marketplace</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <div class="page-head"><div class="wrap"><h1>Security and data handling</h1><p>What the app stores, where it lives, who can see it, and how long it is kept. Last updated November 2026.</p></div></div>
+  <div class="prose"><div class="wrap"><article>
+<h2 id="architecture">How the app runs</h2>
+<p>MVP for Jira is built on <strong>Atlassian Forge</strong>. Its code and data are hosted by Atlassian, inside Atlassian’s cloud. Catoira Consulting Inc runs no servers for the app, and the app makes no calls to anything outside Atlassian: no external services, analytics or trackers.</p>
+
+<h2 id="stored">What the app stores</h2>
+<p>The app stores only what it needs to draw your maps, in Atlassian’s Forge hosted storage for your site:</p>
+<table>
+  <thead><tr><th scope="col">Data</th><th scope="col">What it contains</th></tr></thead>
+  <tbody>
+    <tr><td>MVPs</td><td>The MVP’s title, its steps and lanes (titles, order, linked release ids), the Jira project id, and the Atlassian account id of the person who created it</td></tr>
+    <tr><td>Card positions</td><td>For each issue on an MVP: the Jira issue id, its lane and step, its order, and when it was added</td></tr>
+    <tr><td>Lookups</td><td>Which issue ids and release ids belong to which MVP, so changes in Jira reach the right maps</td></tr>
+    <tr><td>Site settings</td><td>The settings a Jira admin chooses on the settings page</td></tr>
+  </tbody>
+</table>
+<p>The app <strong>does not store</strong> issue summaries, descriptions, comments, attachments or any other issue field, nor people’s names, email addresses or avatars, nor any password or token. Issue details are read from Jira when a map is shown, as the person viewing it.</p>
+<p>Your browser remembers which MVP you last opened in each project, so the tab opens where you left it.</p>
+
+<h2 id="access">Who can see and change what</h2>
+<ul>
+  <li>Every request to Jira is made <strong>as the signed-in person</strong>, so Jira’s own permissions decide what each person can see and change. People never see issues that Jira hides from them, and the app reveals nothing about such issues.</li>
+  <li>The app changes only two Jira fields, and only when a person acts: <strong>story points</strong> (when edited on a card) and <strong>fix versions</strong> (when cards move between lanes linked to releases, if a Jira admin leaves that setting on). Fix versions are added and removed individually, so other versions on an issue are never overwritten.</li>
+  <li>Permission and plan checks happen on the server side for every action, not in the browser.</li>
+  <li>Catoira Consulting Inc has no access to your Jira site or to the app’s stored data.</li>
+</ul>
+
+<h2 id="permissions">Permissions the app requests</h2>
+<table>
+  <thead><tr><th scope="col">Permission</th><th scope="col">Why</th></tr></thead>
+  <tbody>
+    <tr><td><code>read:jira-work</code></td><td>Read issues, statuses, fields, releases and permissions to draw the map</td></tr>
+    <tr><td><code>write:jira-work</code></td><td>Update story points and fix versions when a person does so on the map</td></tr>
+    <tr><td><code>storage:app</code></td><td>Keep MVPs, card positions and settings in Forge hosted storage</td></tr>
+  </tbody>
+</table>
+
+<h2 id="residency">Data residency</h2>
+<p>App data is kept in Atlassian’s Forge hosted storage, which supports Atlassian data residency. If your organization pins its Jira data to a location, the app’s data is kept in the same location and moves with it.</p>
+
+<h2 id="logs">Logs</h2>
+<p>When something goes wrong, the app writes a short error log line to Atlassian’s Forge logs. Log lines contain ids (MVP, issue or account id) and Jira’s error code, never issue content. Atlassian keeps these logs for a limited period. Your site admin can turn off log sharing with app developers in Atlassian Administration at any time.</p>
+
+<h2 id="retention">Retention and deletion</h2>
+<ul>
+  <li>Data is kept until someone deletes it. Deleting an MVP removes its map; removing an issue from an MVP removes its card; deleting an issue in Jira removes it from every MVP automatically.</li>
+  <li>A Jira admin can remove everything at once with <strong>Delete all app data</strong> on the settings page. This never touches Jira issues.</li>
+  <li>If a subscription ends, nothing is deleted; the app switches to a limited mode.</li>
+  <li><strong>Uninstalling:</strong> Atlassian soft-deletes the app’s stored data and then removes it under Atlassian’s data retention policy. A reinstall starts with empty data; for a limited period after uninstalling (currently 21 days) a site admin can ask Atlassian to reconnect the previous data. For immediate, verifiable removal, use Delete all app data before uninstalling.</li>
+</ul>
+
+<h2 id="practices">Our practices</h2>
+<ul>
+  <li>Code changes are reviewed and run through automated tests, including checks that every action verifies permissions and validates its input.</li>
+  <li>Dependencies are installed from a lockfile and audited before each release.</li>
+  <li>The app follows the principle of least privilege: it requests only the permissions listed above.</li>
+  <li>We follow Atlassian’s Security Bug Fix Policy for Marketplace apps.</li>
+</ul>
+
+<h2 id="report">Report a security issue</h2>
+<p>Email <a href="mailto:support@catoira.app?subject=Security%20report">support@catoira.app</a> with “Security report” in the subject. Include the steps to reproduce, the impact you see, and how to reach you. We acknowledge reports within three business days and keep you updated until the issue is fixed. Please give us a reasonable time to fix an issue before disclosing it publicly, and don’t access or change data that isn’t yours while testing.</p>
+  </article></div></div>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <p>© 2026 Catoira Consulting Inc.</p>
+      <p>Jira and Atlassian are trademarks of Atlassian Pty Ltd. MVP for Jira is not made or endorsed by Atlassian.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="docs.html">Docs</a>
+      <a href="support.html">Support</a>
+      <a href="security.html">Security</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

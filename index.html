@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MVP for Jira: story maps for your first release</title>
+<meta name="description" content="A story map in its own Jira tab. Lay out your user journey, cut MVP, v1 and v2 from the issues you already have, and watch every card follow its live Jira status.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon.png" alt="" width="36" height="36">MVP for Jira</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="docs.html">Docs</a>
+      <a href="#pricing">Pricing</a>
+      <a href="security.html">Security</a>
+      <a href="support.html">Support</a>
+      <!-- MARKETPLACE_URL: replace with the listing URL once it exists -->
+      <a class="btn btn-blue" href="https://marketplace.atlassian.com/search?query=MVP%20for%20Jira">Get it on the Marketplace</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <h1 id="hero-title">Cut your MVP from the Jira issues you already have.</h1>
+      <p class="lede">A story map in its own Jira tab. Your user journey runs across the top, MVP, v1 and v2 run down the side, and every card shows its live Jira status.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://marketplace.atlassian.com/search?query=MVP%20for%20Jira">Start a 30-day free trial</a>
+        <a class="btn btn-ghost" href="docs.html">Read the docs</a>
+      </div>
+      <p class="fine">Free for teams of up to 10 users. Jira Cloud only.</p>
+
+      <div class="map" role="img" aria-label="Example story map: steps Browse, Cart, Payment and Confirmation across the top; lanes MVP, v1 and v2 down the side, with issue cards coloured by status.">
+        <div class="map-scroll">
+          <div class="map-grid" aria-hidden="true">
+            <div class="map-corner">Story map</div>
+            <div class="map-step">Browse</div>
+            <div class="map-step">Cart</div>
+            <div class="map-step">Payment</div>
+            <div class="map-step">Confirmation</div>
+
+            <div class="lane-head"><span class="lane-name ribbon">MVP</span><span class="release">Checkout 2.4, due Dec 12</span></div>
+            <div class="cell"><div class="card done">Recently viewed products<div class="meta"><span class="st">DONE</span><span class="pts">3</span></div></div></div>
+            <div class="cell"><div class="card prog">Apple Pay on the cart page<div class="meta"><span class="st">IN PROGRESS</span><span class="pts">3</span></div></div><div class="card done">Cart totals API<div class="meta"><span class="st">DONE</span><span class="pts">3</span></div></div></div>
+            <div class="cell"><div class="card rev">Tax rounds wrong for CAD<div class="meta"><span class="st">IN REVIEW</span><span class="pts">2</span></div></div><div class="card landing">Saved payment methods<div class="meta"><span class="st">TO DO</span><span class="pts">8</span></div></div></div>
+            <div class="cell"><div class="card done">Checkout analytics events<div class="meta"><span class="st">DONE</span><span class="pts">3</span></div></div></div>
+
+            <div class="lane-head"><span class="lane-name">v1</span><span class="release">Checkout 2.5</span></div>
+            <div class="cell"></div>
+            <div class="cell"><div class="card">Promo code field<div class="meta"><span class="st">TO DO</span><span class="pts">2</span></div></div></div>
+            <div class="cell"><div class="card">Split payment across two cards<div class="meta"><span class="st">TO DO</span><span class="pts">13</span></div></div></div>
+            <div class="cell"><div class="card">Order email redesign<div class="meta"><span class="st">TO DO</span><span class="pts">5</span></div></div></div>
+
+            <div class="lane-head"><span class="lane-name">v2</span><span class="release none">No release</span></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"><div class="card">Gift card redemption<div class="meta"><span class="st">TO DO</span><span class="pts">8</span></div></div></div>
+            <div class="cell"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="how-title">
+    <div class="wrap">
+      <h2 id="how-title">From backlog to first release in four steps</h2>
+      <p class="intro">No new tool to learn and no copies of your issues. The map is a view of Jira, so it stays true.</p>
+      <ol class="steps">
+        <li><h3>Create an MVP</h3><p>Give it a name. You start with five steps and three lanes: MVP, v1 and v2. Rename anything by clicking it.</p></li>
+        <li><h3>Add issues</h3><p>Find them with JQL, from an epic, or by key and text. Tick the ones you want; they wait in the Unplaced tray.</p></li>
+        <li><h3>Arrange the map</h3><p>Drag each card to its step and lane. Link lanes to Jira releases so fix versions follow the cards.</p></li>
+        <li><h3>Track it live</h3><p>Cards change colour as work moves. Lane totals and the early-start warning keep the cut honest.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band alt" aria-labelledby="features-title">
+    <div class="wrap">
+      <h2 id="features-title">Built for the conversation about what ships first</h2>
+      <dl class="features">
+        <div><dt>Live from Jira</dt><dd>Status, story points, flags, epics and assignees update on every open map within seconds. Nobody refreshes, nobody copies.</dd></div>
+        <div><dt>Releases that follow the map</dt><dd>Link a lane to an unreleased version. Move a card into it and the issue’s fix version follows, without touching any other versions.</dd></div>
+        <div><dt>Early-start warning</dt><dd>If work starts in v1 while the MVP lane still has open issues, the lane turns orange and the map tells you how many.</dd></div>
+        <div><dt>Totals at the end of every lane</dt><dd>Issues and story points per status, plus percent done, so you can see whether a lane fits the release.</dd></div>
+        <div><dt>Edit in place</dt><dd>Rename steps and lanes where they are. Drag cards, steps and lanes. Story points edit right on the card.</dd></div>
+        <div><dt>Respects Jira permissions</dt><dd>People only see issues Jira lets them see, and changes to issues are made as them, under their own permissions.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="band" id="pricing" aria-labelledby="pricing-title">
+    <div class="wrap">
+      <h2 id="pricing-title">Pricing</h2>
+      <p class="intro">Per user per month, billed by Atlassian through the Marketplace. Every plan includes every feature and a 30-day free trial.</p>
+      <table class="price-table">
+        <caption class="note" style="caption-side: bottom; text-align: left; padding-top: 12px">Prices in US dollars. Annual billing is available through the Marketplace.</caption>
+        <thead><tr><th scope="col">Users on your Jira site</th><th scope="col">Price per user, per month</th></tr></thead>
+        <tbody>
+          <tr class="free"><td>1 to 10</td><td class="price">Free</td></tr>
+          <tr><td>11 to 100</td><td class="price">$0.65</td></tr>
+          <tr><td>101 to 250</td><td class="price">$0.35</td></tr>
+          <tr><td>251 to 1,000</td><td class="price">$0.25</td></tr>
+          <tr><td>1,001 and up</td><td class="price">$0.15</td></tr>
+        </tbody>
+      </table>
+      <p class="note">If your subscription ends, nothing is deleted. The app switches to a limited mode (one editable MVP with up to 20 issues and 3 lanes) until you subscribe again.</p>
+    </div>
+  </section>
+
+  <section class="band alt" aria-labelledby="trust-title">
+    <div class="wrap">
+      <h2 id="trust-title">Your Jira data stays in Jira</h2>
+      <div class="trust">
+        <div><h3>Runs on Atlassian</h3><p>Built on Atlassian Forge. We run no servers and the app sends nothing outside Atlassian.</p></div>
+        <div><h3>Stores ids, not content</h3><p>The app keeps your map layout and settings. Issue summaries, descriptions and people’s details are read from Jira when shown, never stored.</p></div>
+        <div><h3>Data residency</h3><p>App data lives in Atlassian’s Forge hosted storage, which follows your site’s data residency location.</p></div>
+      </div>
+      <p style="margin-top: 32px"><a href="security.html">Read how the app handles data</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <p>© 2026 Catoira Consulting Inc.</p>
+      <p>Jira and Atlassian are trademarks of Atlassian Pty Ltd. MVP for Jira is not made or endorsed by Atlassian.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="docs.html">Docs</a>
+      <a href="support.html">Support</a>
+      <a href="security.html">Security</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

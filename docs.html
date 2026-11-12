@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Docs | MVP for Jira</title>
+<meta name="description" content="How to install MVP for Jira, build a story map, link lanes to releases, and manage settings.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon.png" alt="" width="36" height="36">MVP for Jira</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="docs.html" aria-current="page">Docs</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="security.html">Security</a>
+      <a href="support.html">Support</a>
+      <!-- MARKETPLACE_URL: replace with the listing URL once it exists -->
+      <a class="btn btn-blue" href="https://marketplace.atlassian.com/search?query=MVP%20for%20Jira">Get it on the Marketplace</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <div class="page-head"><div class="wrap"><h1>Docs</h1><p>Everything you need to plan an MVP in Jira, from installing the app to linking lanes to releases.</p></div></div>
+  <div class="prose"><div class="wrap"><article>
+<ul class="toc" aria-label="On this page">
+  <li><a href="#install">Install and find the tab</a></li>
+  <li><a href="#create">Create an MVP</a></li>
+  <li><a href="#add">Add issues</a></li>
+  <li><a href="#arrange">Arrange the map</a></li>
+  <li><a href="#releases">Releases and fix versions</a></li>
+  <li><a href="#track">Track progress</a></li>
+  <li><a href="#cards">Cards</a></li>
+  <li><a href="#permissions">Who can do what</a></li>
+  <li><a href="#settings">Admin settings</a></li>
+  <li><a href="#plans">Plans and limited mode</a></li>
+  <li><a href="#remove">Removing data</a></li>
+  <li><a href="#faq">Questions</a></li>
+</ul>
+
+<h2 id="install">Install and find the tab</h2>
+<p>A Jira site admin installs MVP for Jira from the Atlassian Marketplace. The app works with Jira Cloud only.</p>
+<p>Once installed, every project gets an <strong>MVP</strong> tab next to its other project views. Jira sometimes places new tabs under <strong>More</strong> at the end of the tab row. To keep MVP visible, open <strong>More</strong> and drag MVP onto the tab row. Each person pins tabs for themselves.</p>
+
+<h2 id="create">Create an MVP</h2>
+<p>Open the MVP tab and choose <strong>New MVP</strong>. Give it a name and choose <strong>Create</strong>. You start with five steps (Step 1 to Step 5) across the top and three lanes down the side: <strong>MVP</strong>, <strong>v1</strong> and <strong>v2</strong>.</p>
+<p>Everything is edited where it sits:</p>
+<ul>
+  <li><strong>Rename</strong> the MVP, a step or a lane by clicking its title. Press Enter to save or Esc to cancel.</li>
+  <li><strong>Add a step</strong> with the + after the last step. <strong>Add a lane</strong> with the bar under the lanes.</li>
+  <li><strong>Remove</strong> a step or lane with its − button. Its issues move to the step before, or the lane above, and the app asks first. An MVP always keeps at least one step and one lane.</li>
+  <li><strong>Reorder</strong> steps by dragging their grip left or right, and lanes by dragging up or down. The step and lane menus offer Move left, Move right, Move up and Move down for keyboard users.</li>
+</ul>
+
+<h2 id="add">Add issues</h2>
+<p>Choose <strong>Add issues</strong>. There are three ways to find issues, and you can mix them before adding:</p>
+<ul>
+  <li><strong>JQL</strong>: type a query. Jira’s own suggestions help with fields and values, and the dialog shows how many issues match.</li>
+  <li><strong>From an epic</strong>: type part of an epic’s name or key, pick it, and see its child issues.</li>
+  <li><strong>By key or text</strong>: type a key such as PHX-123 or words from a summary. You can also paste several keys separated by commas.</li>
+</ul>
+<p>Tick the issues you want, or use <strong>Select all</strong>, then choose <strong>Add</strong>. Issues already on the MVP are marked. Searching happens as you type, so it works on sites with any number of issues.</p>
+<p>New issues land in the <strong>Unplaced</strong> tray above the map, so you can see exactly what still needs a place. An MVP is a hand-picked list: nothing joins it automatically later, even if it would match your query.</p>
+
+<h2 id="arrange">Arrange the map</h2>
+<p>Drag cards from the Unplaced tray onto a step and lane, between cells, or within a cell to change their order. Drag a card back to the tray to unplace it. Each card’s menu also has <strong>Move to…</strong> for keyboard users, <strong>Send back to Unplaced</strong>, and <strong>Remove from MVP</strong>. Removing an issue only takes it off this map; it never changes the issue in Jira.</p>
+
+<h2 id="releases">Releases and fix versions</h2>
+<p>Under each lane title is a release chip. Click it to link the lane to an <strong>unreleased</strong> Jira version, or choose <strong>No release</strong>. Each release can be linked to one lane of an MVP.</p>
+<p>When a lane is linked, the issues’ <strong>Fix version</strong> field follows the map:</p>
+<table>
+  <thead><tr><th scope="col">You do this</th><th scope="col">Fix version in Jira</th></tr></thead>
+  <tbody>
+    <tr><td>Move a card into a lane linked to a release</td><td>That release is added. Releases linked to this MVP’s other lanes are removed. Every other fix version stays.</td></tr>
+    <tr><td>Move a card into a lane with no release, or back to Unplaced</td><td>This MVP’s lane releases are removed. Every other fix version stays.</td></tr>
+    <tr><td>Move a card to another step in the same lane</td><td>No change.</td></tr>
+    <tr><td>Change a lane’s release when it has issues</td><td>The app asks whether to update those issues, or leave them as they are.</td></tr>
+  </tbody>
+</table>
+<p>Changes are made as you, under your Jira permissions. If Jira can’t make a change (for example, you can’t edit that issue, or the issue is in a different project from the release), the card still moves and shows a warning with Jira’s reason. If someone changes a fix version directly in Jira, the card stays where it is and shows a small “doesn’t match lane” marker with a <strong>Move to matching lane</strong> action.</p>
+<p>A Jira admin can switch this off with <strong>Sync fix version with lanes</strong> in the <a href="#settings">settings</a>.</p>
+
+<h2 id="track">Track progress</h2>
+<ul>
+  <li><strong>Card colour</strong> follows the issue’s status: To Do, In Progress, In Review or Done.</li>
+  <li><strong>Lane totals</strong> at the right end of each lane show issues and story points per status, plus percent done.</li>
+  <li><strong>Early-start warning</strong>: if a later lane has work in progress while the first lane still has open issues, that lane is outlined in orange and a banner says how many.</li>
+  <li><strong>Live updates</strong>: when anyone changes an issue in Jira, or moves something on the map, every open map updates within seconds. The dot next to Live turns grey if updates pause, and the map then refreshes every minute.</li>
+</ul>
+
+<h2 id="cards">Cards</h2>
+<p>Each card shows the summary, status, epic, issue type, key, flag, story points and assignee. Click the story points to edit them in place. The expand button opens Jira’s own issue view, where you can change anything; the card updates when you close it.</p>
+
+<h2 id="permissions">Who can do what</h2>
+<table>
+  <thead><tr><th scope="col">Action</th><th scope="col">Who</th></tr></thead>
+  <tbody>
+    <tr><td>View an MVP and move cards</td><td>Anyone who can browse the project</td></tr>
+    <tr><td>Create an MVP</td><td>Anyone who can edit issues in the project (a Jira admin can limit this to project admins)</td></tr>
+    <tr><td>Rename, add or remove steps, lanes and issues; link releases; delete the MVP</td><td>The MVP’s creator, while they can still edit issues, and project admins</td></tr>
+    <tr><td>Edit story points or fix versions</td><td>Whoever Jira allows to edit that issue</td></tr>
+    <tr><td>Change app settings</td><td>Jira admins</td></tr>
+  </tbody>
+</table>
+<p>People never see issues that Jira hides from them. In team-managed projects with access set to <strong>Open</strong>, everyone on the site can edit issues, so everyone can create MVPs there. Use the <strong>Who can create MVPs</strong> setting to limit that.</p>
+
+<h2 id="settings">Admin settings</h2>
+<p>Jira admins open the settings from the app’s entry in your site’s app management page (choose <strong>Configure</strong> next to MVP for Jira). Settings apply to the whole site:</p>
+<ul>
+  <li><strong>Story points field</strong>: the field your teams estimate with, or none to hide points.</li>
+  <li><strong>Status colours</strong>: which colour each Jira status uses on cards.</li>
+  <li><strong>Card content</strong>: show or hide status, epic, flag, assignee and story points.</li>
+  <li><strong>Early-start warning</strong>: on or off.</li>
+  <li><strong>Who can create MVPs</strong>: anyone who can edit issues, or project admins only.</li>
+  <li><strong>Sync fix version with lanes</strong>: on or off.</li>
+  <li><strong>Delete all app data</strong>: see below.</li>
+</ul>
+
+<h2 id="plans">Plans and limited mode</h2>
+<p>Every subscription includes every feature, and sites with up to 10 users subscribe for free. See <a href="index.html#pricing">pricing</a>.</p>
+<p>If a subscription or trial ends, nothing is deleted. The app switches to limited mode: one MVP (the most recently updated) stays editable with up to 20 issues and 3 lanes; other MVPs and extra lanes become read-only but can still be removed. Subscribing again unlocks everything as it was.</p>
+
+<h2 id="remove">Removing data</h2>
+<ul>
+  <li><strong>Delete an MVP</strong> from its menu. This removes the map, not the issues.</li>
+  <li><strong>Delete all app data</strong> on the settings page removes every MVP and the settings for the whole site, after you type DELETE to confirm. Jira issues are never touched.</li>
+  <li><strong>Uninstalling</strong> the app leaves your Jira issues as they are. Atlassian removes the app’s stored data on its own schedule; see <a href="security.html#retention">Security</a>.</li>
+</ul>
+
+<h2 id="faq">Questions</h2>
+<h3>Does the app change my issues?</h3>
+<p>Only two fields, and only when you act: story points when you edit them on a card, and fix versions when cards move between lanes linked to releases (if that setting is on).</p>
+<h3>Why doesn’t a new issue appear on my MVP?</h3>
+<p>MVPs are hand-picked. Use Add issues to bring it in.</p>
+<h3>The Live dot is grey in Safari after my connection dropped.</h3>
+<p>Safari doesn’t always restore live updates after a network drop. The map keeps refreshing every minute; reload the page to get live updates back.</p>
+<h3>Can I use it with Jira Data Center?</h3>
+<p>No. MVP for Jira is built for Jira Cloud.</p>
+<p>Something else? Write to <a href="mailto:support@catoira.app">support@catoira.app</a>.</p>
+  </article></div></div>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <p>© 2026 Catoira Consulting Inc.</p>
+      <p>Jira and Atlassian are trademarks of Atlassian Pty Ltd. MVP for Jira is not made or endorsed by Atlassian.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="docs.html">Docs</a>
+      <a href="support.html">Support</a>
+      <a href="security.html">Security</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
