@@ -50,6 +50,7 @@
   <li>The app changes only two Jira fields, and only when a person acts: <strong>story points</strong> (when edited on a card) and <strong>fix versions</strong> (when cards move between lanes linked to releases, if a Jira admin leaves that setting on). Fix versions are added and removed individually, so other versions on an issue are never overwritten.</li>
   <li>Permission and plan checks happen on the server side for every action, not in the browser.</li>
   <li>Catoira Consulting Inc has no access to your Jira site or to the app’s stored data.</li>
+  <li>The only personal data the app stores is the Atlassian account id of each MVP’s creator. The app reports these ids to Atlassian’s personal data reporting service and removes the ids of closed accounts.</li>
 </ul>
 
 <h2 id="permissions">Permissions the app requests</h2>
@@ -76,6 +77,9 @@
   <li><strong>Uninstalling:</strong> Atlassian soft-deletes the app’s stored data and then removes it under Atlassian’s data retention policy. A reinstall starts with empty data; for a limited period after uninstalling (currently 21 days) a site admin can ask Atlassian to reconnect the previous data. For immediate, verifiable removal, use Delete all app data before uninstalling.</li>
 </ul>
 
+<h2 id="dpa">Data processing terms</h2>
+<p>Our <a href="dpa.html">Data Processing Addendum</a> covers our role as a processor, our subprocessor (Atlassian), security incidents and international transfers. It is part of our <a href="terms.html">end user agreement</a>.</p>
+
 <h2 id="practices">Our practices</h2>
 <ul>
   <li>Code changes are reviewed and run through automated tests, including checks that every action verifies permissions and validates its input.</li>
@@ -100,6 +104,7 @@
       <a href="security.html">Security</a>
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
+      <a href="dpa.html">DPA</a>
     </nav>
   </div>
 </footer>

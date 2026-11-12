@@ -56,6 +56,7 @@ TEMPLATE = """<!doctype html>
       <a href="security.html">Security</a>
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
+      <a href="dpa.html">DPA</a>
     </nav>
   </div>
 </footer>
